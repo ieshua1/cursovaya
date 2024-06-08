@@ -1,0 +1,74 @@
+﻿<Page x:Class="stroyinvest.View.UserManagmentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:stroyinvest.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserManagmentPage" Initialized="Page_Initialized" Loaded="Page_Loaded">
+
+    <Page.Resources>
+        <Style x:Key="Title1Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
+        <Style x:Key="Title2Regular" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <Style x:Key="Text1Regular" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Normal"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#F2F2F2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <!-- Стиль для текста в DataGrid -->
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10" Background="#EAEAEA">
+            <TextBlock Text="Управление пользователями" Style="{StaticResource Title1Bold}" Margin="10,5"/>
+            <Button x:Name="AddUserButton" Content="+ Добавить пользователя" Margin="10,5,0,5" Padding="10,5" Background="#EE7600" Foreground="#FFFFFF" FontSize="14" Click="AddUserButton_Click"/>
+        </StackPanel>
+
+        <DataGrid  x:Name="UsersDataGrid" Grid.Row="1" AutoGenerateColumns="False" HorizontalGridLinesBrush="DarkGray"
+    RowBackground="LightGray" AlternatingRowBackground="White" RowEditEnding="UsersGrid_RowEditEnding" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding IdUser}" IsReadOnly="True" Width="*" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding UserFirstName, UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding UserLastName, UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTextColumn Header="Отчество" Binding="{Binding UserPatronymicName, UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTextColumn Header="Email" Binding="{Binding UserEmail, UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTextColumn Header="Застройщик" Binding="{Binding UserBuilderName, UpdateSourceTrigger=PropertyChanged}" Width="*" />
+                <DataGridTemplateColumn Header="Действия" Width="Auto">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button x:Name="DeleteButton" Content="Удалить" Margin="2" Click="RemoveUserButton_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

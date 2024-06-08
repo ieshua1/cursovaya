@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="34033afd6ba644beb74a9a1689ccd36e" Name="Diagram1">
+        <EntityTypeShape EntityType="stroyinvestModel.Objects" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.ObjectStatuses" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.ObjectTypes" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.Orders" Width="1.5" PointX="7.5" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.OrderStatuses" Width="1.5" PointX="5.25" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.Reports" Width="1.5" PointX="9.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.ReportTypes" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.UserRoles" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="stroyinvestModel.Users" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <AssociationConnector Association="stroyinvestModel.FK_Objects_ObjectStatuses" ManuallyRouted="false" />
+        <AssociationConnector Association="stroyinvestModel.FK_Objects_ObjectTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="stroyinvestModel.FK_Objects_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="stroyinvestModel.FK_Orders_Objects" ManuallyRouted="false" />
+        <AssociationConnector Association="stroyinvestModel.FK_Orders_OrderStatuses" ManuallyRouted="false" />
+        <AssociationConnector Association="stroyinvestModel.FK_Orders_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="stroyinvestModel.FK_Reports_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="stroyinvestModel.FK_Reports_ReportTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="stroyinvestModel.FK_Users_UserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

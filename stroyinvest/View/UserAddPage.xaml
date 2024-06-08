@@ -1,0 +1,148 @@
+﻿<Page x:Class="stroyinvest.View.UserAddPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:stroyinvest.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="UserAddPage">
+
+    <Page.Resources>
+        <Style x:Key="Title1Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
+        <Style x:Key="Title1Regular" TargetType="TextBlock" BasedOn="{StaticResource Title1Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Title2Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <Style x:Key="Title2Regular" TargetType="TextBlock" BasedOn="{StaticResource Title2Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Title3Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="Title3Regular" TargetType="TextBlock" BasedOn="{StaticResource Title3Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Text1Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style x:Key="Text1Regular" TargetType="TextBlock" BasedOn="{StaticResource Text1Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Text2Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <Style x:Key="Text2Regular" TargetType="TextBlock" BasedOn="{StaticResource Text2Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Text3Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+
+        <Style x:Key="Text3Regular" TargetType="TextBlock" BasedOn="{StaticResource Text3Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <!-- Стиль кнопки -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#EE7600"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Height" Value="40"/>
+        </Style>
+
+        <!-- Стиль текстового поля -->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+        
+        <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+
+        <!-- Стиль ComboBox -->
+        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+
+        <!-- Стиль заголовка DataGrid -->
+        <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#F2F2F2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <ScrollViewer Width="900" Margin="10" VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="50, 0, 50, 0">
+
+                <TextBlock Text="Имя:" Style="{StaticResource Text1Regular}"/>
+                <TextBox x:Name="UserFirstNameTBox" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Фамилия:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <TextBox x:Name="UserLastNameTBox" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Отчество:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <TextBox x:Name="UserPatronymicTBox" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Роль:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <ComboBox x:Name="UserRoleCBox" SelectionChanged="UserRoleCBox_SelectionChanged"
+                  Style="{StaticResource ComboBoxStyle}"/>
+
+                <TextBlock Text="Email:" Style="{StaticResource Text1Regular}"/>
+                <TextBox x:Name="UserEmailTBox" Style="{StaticResource TextBoxStyle}"/>
+
+                <TextBlock Text="Пароль:" Style="{StaticResource Text1Regular}"/>
+                <PasswordBox x:Name="UserPasswordPBox" Style="{StaticResource PasswordBoxStyle}"/>
+
+                <StackPanel x:Name="BuilderStackPanel" Visibility="Collapsed">
+                    <TextBlock Text="Название застройщика:" Style="{StaticResource Text1Regular}"/>
+                    <TextBox x:Name="UserBuilderNmaeTBox" Style="{StaticResource TextBoxStyle}"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Margin="50" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+                    <Button x:Name="SaveButton" Content="Сохранить" Click="SaveButton_Click"
+            Style="{StaticResource ButtonStyle}"/>
+                </StackPanel>
+
+            </StackPanel>
+
+        </ScrollViewer>
+
+
+    </Grid>
+</Page>

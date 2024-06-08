@@ -1,0 +1,145 @@
+﻿<Page x:Class="stroyinvest.View.ObjectDetailsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:stroyinvest.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ObjectDetailsPage">
+
+    <Page.Resources>
+        <!-- Стили шрифтов -->
+        <Style x:Key="Title1Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="24"/>
+        </Style>
+
+        <Style x:Key="Title1Regular" TargetType="TextBlock" BasedOn="{StaticResource Title1Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Title2Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="18"/>
+        </Style>
+
+        <Style x:Key="Title2Regular" TargetType="TextBlock" BasedOn="{StaticResource Title2Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Title3Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style x:Key="Title3Regular" TargetType="TextBlock" BasedOn="{StaticResource Title3Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Text1Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <Style x:Key="Text1Regular" TargetType="TextBlock" BasedOn="{StaticResource Text1Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Text2Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+
+        <Style x:Key="Text2Regular" TargetType="TextBlock" BasedOn="{StaticResource Text2Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <Style x:Key="Text3Bold" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Inter"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="10"/>
+        </Style>
+
+        <Style x:Key="Text3Regular" TargetType="TextBlock" BasedOn="{StaticResource Text3Bold}">
+            <Setter Property="FontWeight" Value="Normal"/>
+        </Style>
+
+        <!-- Стиль кнопки -->
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#EE7600"/>
+            <Setter Property="Foreground" Value="#FFFFFF"/>
+            <Setter Property="Padding" Value="10,5"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="FontSize" Value="14"/>
+        </Style>
+
+        <!-- Стиль текстового поля -->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+
+        <!-- Стиль ComboBox -->
+        <Style x:Key="ComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="BorderBrush" Value="#CCCCCC"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0,5,0,0"/>
+        </Style>
+
+        <!-- Стиль заголовка DataGrid -->
+        <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#F2F2F2"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Детали объекта" Style="{StaticResource Title2Bold}" Margin="5"/>
+            <StackPanel x:Name="AdminPanel" Orientation="Horizontal" Visibility="Collapsed">
+                <Button Click="RemoveObjectButton_Click" Style="{StaticResource ButtonStyle}">Удалить</Button>
+                <Button Click="EditObjectButton_Click" Style="{StaticResource ButtonStyle}">Изменить</Button>
+        </StackPanel>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" Margin="10">
+            <StackPanel HorizontalAlignment="Center" Margin="10">
+                <TextBlock Text="{Binding ObjectName}" Style="{StaticResource Title1Bold}" Margin="10" />
+                <Image x:Name="MainImage" Height="400" Stretch="Uniform" Margin="0,0,0,10"/>
+                <StackPanel>
+                <TextBlock Text="{Binding ObjectStatuses.ObjectStatusName}" Style="{StaticResource Title1Bold}" Margin="0,0,0,10"/>
+
+                <TextBlock Text="{Binding ObjectTypes.ObjectTypeName}" Style="{StaticResource Title1Regular}" />
+
+                 <TextBlock Text="Количетсво комнат:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <TextBlock Text="{Binding ObjectRoomCount}" Style="{StaticResource Title2Regular}"/>
+
+                <TextBlock Text="Площадь:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <TextBlock Text="{Binding ObjectSquare, StringFormat={}{0} м²}" Style="{StaticResource Title2Regular}"/>
+
+                <TextBlock Text="Описание:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <TextBlock Text="{Binding ObjectDescription}" TextWrapping="Wrap" Style="{StaticResource Text1Regular}"/>
+
+                <TextBlock Text="Адрес:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <TextBlock Text="{Binding ObjectAddress}" TextWrapping="Wrap" Style="{StaticResource Text1Regular}"/>
+
+                <TextBlock Text="Застройщик:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <TextBlock Text="{Binding Users.UserBuilderName}" TextWrapping="Wrap" Style="{StaticResource Text1Regular}"/>
+
+                <TextBlock Text="Стоимость:" Style="{StaticResource Text1Regular}" Margin="0,10,0,0"/>
+                <TextBlock Text="{Binding ObjectPrice, StringFormat=C, ConverterCulture=ru-RU}" TextWrapping="Wrap" Style="{StaticResource Text1Bold}"/>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
